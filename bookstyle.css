@@ -1,0 +1,39 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; 
+}
+
+html, body  { 
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.4;
+  background-image: url("");
+  background-size: auto;
+}
+h2{
+	text-align: center;
+	margin: 45px 0px;
+}
+
+#bookImage{
+	width: 350px;
+	height: 500px;
+	float: left;
+	margin: 0% 10% 5% 20%;
+}
+
+a{
+	color: black;
+}
+
+td{
+	line-height: 3em;
+	font-size: 1.1em;
+	font-weight: bold;
+}
