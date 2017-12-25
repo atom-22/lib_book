@@ -1,42 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="book">
 <head>
 	<title>Book</title>
 	<link rel="stylesheet" type="text/css" href="bookstyle.css">
 	<link rel="icon" href="images/bookicon.png">
+	<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
 </head>
 <body>
 	<div>
 		<h2>Book Description</h2>
-		<div>
-			<img src="images/1.jpg" alt="bookImage" id="bookImage">
+		<div ng-controller="BookController as book">
+			<img src="{{book.bookById.imageSrc}}" alt="bookImage" id="bookImage">
 			<table>
 				<tr>
 					<td>Name:</td>
-					<td>The Moon and Sixpense</td>
+					<td>{{book.bookById.bookName}}</td>
 				</tr>
 				<tr>
 					<td>Author:</td>
-					<td><a href="https://en.wikipedia.org/wiki/W._Somerset_Maugham" target="_blank">Somerset Maugham</a></td>
+					<td><a href="https://en.wikipedia.org/wiki/W._Somerset_Maugham" target="_blank">{{book.bookById.author}}</a></td>
 				</tr>
 				<tr>
 					<td>Publishing year:&nbsp&nbsp</td>
-					<td>1919</td>
+					<td>{{book.bookById.pubYear}}</td>
 				</tr>
 				<tr>
 					<td>Country:</td>
-					<td><a href="https://en.wikipedia.org/wiki/United_Kingdom" target="_blank">United Kingdom</a></td>
+					<td><a href="https://en.wikipedia.org/wiki/United_Kingdom" target="_blank">{{book.bookById.country}}</a></td>
 				</tr>
 				<tr>
 					<td>Pages:</td>
-					<td>263 pp</td>
+					<td>{{book.bookById.pages+" pp"}}</td>
+				</tr>
+				<tr>
+					<td>Language:</td>
+					<td>{{book.bookById.language}}</td>
 				</tr>
 				<tr>
 					<td>Is available:</td>
-					<td>true/false</td>
+					<td>{{book.bookById.isAvailable}}</td>
 				</tr>
 			</table>
+		</div>
 	</div>
+	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="bookController.js"></script>
+	<script type="text/javascript" src="libData.js"></script>
+
+	<script type="text/javascript">
+		var controller = new bookController();
+	</script>
 </body>
 </html>

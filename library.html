@@ -1,84 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="library">
 <head>
 	<title>Library</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="icon" href="images/libicon.png">
+	<link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
 </head>
 <body>
-	<div class="paddingBlock">
+	<div class="paddingBlock" ng-controller="LibController as library">
 	  	<!-- <h1>My Library</h1> -->
 	  	<div class="equalHMRWrap eqWrap">
-		    <div class="equalHMR eq">
+		    <div class="equalHMR eq"  ng-repeat = "bk in library.books">
 		    	<div id="imgContainer">
-		    		<img src="images/1.jpg">
+		    		<img ng-src="{{bk.imageSrc}}" alt="image">
 		    	</div>
 		    	<div>
-		    		<p>The Moon and Sixpense</p>
-		    		<p>Somerset Maugham</p>
-		    		<p>1919</p>
-		    		<a href="">more...</a>
-		    	</div>
-		    </div>
-		    <div class="equalHMR eq">
-		    	<div id="imgContainer">
-		    		<img src="images/2.jpg">
-		    	</div>
-		    	<div>
-		    		<p>One hundred years of solitude</p>
-		    		<p>Gabriel García Márquez</p>
-		    		<p>1967</p>
-		    		<a href="">more...</a>
-		    	</div>
-		    </div>
-		    <div class="equalHMR eq">
-		    	<div id="imgContainer">
-		    		<img src="images/3.jpg">
-		    	</div>
-		    	<div>
-		    		<p>Tender is The Night</p>
-		    		<p>F. Scott Fitzgerald</p>
-		    		<p>1932</p>
-		    		<a href="">more...</a>
-		    	</div>
-		    </div>
-		    <div class="equalHMR eq">
-		    	<div id="imgContainer">
-		    		<img src="images/4.jpg">
-		    	</div>
-		    	<div>
-		    		<p>Theatre</p>
-		    		<p>Somerset Maugham</p>
-		    		<p>1937</p>
-		    		<a href="">more...</a>
-		    	</div>
-		    </div>
-		    <div class="equalHMR eq">
-		    	<div id="imgContainer">
-		    		<img src="images/5.jpg">
-		    	</div>
-		    	<div>
-		    		<p>Seven Habits of Highly Effective People</p>
-		    		<p> Stephen R. Covey</p>
-		    		<p>1988</p>
-		    		<a href="">more...</a>
-		    	</div>
-		    </div>
-		    <div class="equalHMR eq">
-		    	<div id="imgContainer">
-		    		<img src="images/6.jpg">
-		    	</div>
-		    	<div>
-		    		<p>Rich Dad Poor Dad</p>
-		    		<p>Robert Kiyosaki</p>
-		    		<p>1997</p>
-		    		<a href="">more...</a>
+		    		<p>{{bk.bookName}}</p>
+		    		<p>{{bk.author}}</p>
+		    		<p>{{bk.pubYear}}</p>
+		    		<a href="book.html?id={{bk.id}}" target="_blank">more...</a>
 		    	</div>
 		    </div>
 	  	</div>
-	  	<a href=""><input type="button" name="" value="Add new book" id="addButton"></a>
+	  
 	</div>
-
+		<input type="button" name="Add" value="Add new book" id="addNewBook" onclick="">
+	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="libController.js"></script>
+	<script type="text/javascript" src="libData.js"></script>
+
+	<script type="text/javascript">
+		var controller = new libController();
+	</script>
 </body>
 </html>

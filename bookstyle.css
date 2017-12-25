@@ -1,19 +1,20 @@
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box; 
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box; 
 }
 
 html, body  { 
 	height: 100%;
 	width: 100%;
 	margin: 0 auto;
+	color:white;
+	font-family: 'Source Serif Pro', serif;
 }
 
 body {
-  font-family: sans-serif;
   line-height: 1.4;
-  background-image: url("");
+  background-image: url("images/cov.png");
   background-size: auto;
 }
 h2{
@@ -26,14 +27,21 @@ h2{
 	height: 500px;
 	float: left;
 	margin: 0% 10% 5% 20%;
+	transition: all .5s ease-in-out;
+}
+
+#bookImage:hover{
+	cursor: zoom-in;
+	-webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 a{
-	color: black;
+	color: white;
 }
 
 td{
 	line-height: 3em;
 	font-size: 1.1em;
-	font-weight: bold;
 }
