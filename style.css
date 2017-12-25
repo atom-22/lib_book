@@ -13,15 +13,22 @@ html, body  {
 }
 
 body {
- /* background-color: lightblue;*/
   line-height: 1.4;
-  background-image: url("images/cov.png");
+  /*background-image: url("images/cov.png");*/
+  background: linear-gradient(#000000, #434343);
   background-size: auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-/*h1 {
-  font-size: 150%;
-}*/
+h1 {
+  text-align: center;
+}
+
+.paddingBlock>p{
+  text-align:center;
+  margin-bottom: 3em; 
+}
 
 p {
   margin-bottom: 10px;

@@ -15,7 +15,6 @@ function libController(){
 		console.log(books);
 	});
 
-
 	function addNewBookFunc(){
 		window.location = "book.html?";
 	}

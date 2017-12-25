@@ -8,9 +8,9 @@
 </head>
 <body>
 	<div>
-		<h2>Book Description</h2>
+		<h2>Learn More About This Book</h2>
 		<div ng-controller="BookController as book">
-			<img src="{{book.bookById.imageSrc}}" alt="bookImage" id="bookImage">
+			<img ng-src="{{book.bookById.imageSrc}}" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Address_book_icon.svg/2000px-Address_book_icon.svg.png" alt="bookImage" id="bookImage">
 			<table>
 				<tr>
 					<td>Name:</td>
@@ -18,19 +18,20 @@
 				</tr>
 				<tr>
 					<td>Author:</td>
-					<td><a href="https://en.wikipedia.org/wiki/W._Somerset_Maugham" target="_blank">{{book.bookById.author}}</a></td>
+					<td><a href="" target="_blank">{{book.bookById.author}}</a></td>
 				</tr>
 				<tr>
 					<td>Publishing year:&nbsp&nbsp</td>
 					<td>{{book.bookById.pubYear}}</td>
+
 				</tr>
 				<tr>
 					<td>Country:</td>
-					<td><a href="https://en.wikipedia.org/wiki/United_Kingdom" target="_blank">{{book.bookById.country}}</a></td>
+					<td><a href="" target="_blank">{{book.bookById.country}}</a></td>
 				</tr>
 				<tr>
 					<td>Pages:</td>
-					<td>{{book.bookById.pages+" pp"}}</td>
+					<td>{{book.bookById.pages}}</td>
 				</tr>
 				<tr>
 					<td>Language:</td>
@@ -42,6 +43,54 @@
 				</tr>
 			</table>
 		</div>
+
+		<section ng-controller="PanelController as panel" id="descBlock">
+			<div>
+				<ul class="nav nav-pills">
+			 		<li ng-class="{active:panel.isSelected(1)}" class="navli" id="Personal">
+			 			<a href ng-click="panel.selectTab(1)">&nbspBook history&nbsp</a>
+			 		</li>
+			 		<li ng-class="{active:panel.isSelected(2)}" class="navli">
+			 			<a href ng-click="panel.selectTab(2)">&nbspDescription&nbsp</a>
+			 		</li>
+			 		<li ng-class="{active:panel.isSelected(3)}" class="navli">
+			 			<a href ng-click="panel.selectTab(3)">&nbspReview&nbsp</a>
+			 		</li>
+		 		</ul>
+			</div>
+
+		 	<div> 
+		 		<div class="panel" ng-show="panel.isSelected(1)">
+			 		<p>Based on the life of Paul Gauguin, The Moon and Sixpence is W. Somerset Maugham's ode to the powerful forces behind creative genius.
+					Charles Strickland is a staid banker, a man of wealth and privilege. He is also a man possessed of an unquenchable desire to create art. As Strickland pursues his artistic vision, he leaves London for Paris and Tahiti, and in his quest makes sacrifices that leaves the lives of those closest to him in tatters. Through Maugham's sympathetic eye Strickland's tortured and cruel soul becomes a symbol of the blessing and the curse of transcendent artistic genius, and the cost in humans lives it sometimes demands.{{email}}</p>
+		 		</div>
+		 		<div class="panel" ng-show="panel.isSelected(2)">
+		 			<p>Charles Strickland, a dull stockbroker, lives in England with his wife and two children. Mrs. Strickland is a model mother, but her husband seems bored with her and with his children. To everyone else, it is Strickland who seems commonplace. The family spends the summer at the seashore, and Strickland returns ahead of his wife. When she writes him that she is coming home, he answers from Paris, simply stating that he is not going to live with her anymore. With singleness of intention, Mrs. Strickland dispatches a friend to Paris to bring back her husband.
+
+					Strickland is living in a shabby hotel; his room is filthy, but he appears to be living alone. Much to the discomfort of the friend, he candidly admits his beastly treatment of his wife, but there is no emotion in his statements concerning her and her future welfare. When asked about the woman with whom he had allegedly run away, he laughs, explaining to Mrs. Strickland’s emissary that he had really run off to paint. He knows he can paint if he seriously tries. The situation is incredible to Mrs. Strickland’s friend. Strickland says he does not care what people think of him.
+
+					Stubbornly, Strickland begins to take art lessons. Although his teacher laughs at his work, he merely shrugs his shoulders and continues to paint in his own way. Back in England, the friend tries to explain to Mrs. Strickland the utter hopelessness of trying to reconcile her husband. She cannot realize her defeat at first. If Strickland had gone off with a woman, she could have understood him. Mrs. Strickland, however, is not able to cope with his having left her for an idea.{{department}}</p>
+		 		</div>
+		 		<div class="panel" ng-show="panel.isSelected(3)">
+		 			<div class="section-form">
+						<form method="" action="">
+						    <input type="text" value="" placeholder="Name" name="name" tabindex="1"/>
+						    <input type="text" value="" placeholder="E-mail" name="email" tabindex="2"/>
+						    <select name="rate">
+						    	<option value="" selected disabled="">Rate</option>
+						    	<option value="">Worst</option>
+						    	<option value="">Bad</option>
+						    	<option value="" >Normal</option>
+						    	<option value="">Good</option>
+						    	<option value="">The Best</option>
+						    </select>
+						    <textarea placeholder="Message" name="Message" tabindex="3" rows="10" maxlength="350"></textarea>
+						    <input type="submit" value="Add Message" tabindex="4"/>
+						</form>
+					</div>
+		 		</div>
+		 	</div>
+		</section>
 	</div>
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="bookController.js"></script>

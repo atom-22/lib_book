@@ -8,7 +8,8 @@
 </head>
 <body>
 	<div class="paddingBlock" ng-controller="LibController as library">
-	  	<!-- <h1>My Library</h1> -->
+	  	<h1>First rate the books you've read</h1>
+	  	<p>The more titles you rate the better your recommendations.Here we see some books you might have read.</p>
 	  	<div class="equalHMRWrap eqWrap">
 		    <div class="equalHMR eq"  ng-repeat = "bk in library.books">
 		    	<div id="imgContainer">
@@ -22,9 +23,8 @@
 		    	</div>
 		    </div>
 	  	</div>
-	  
 	</div>
-		<input type="button" name="Add" value="Add new book" id="addNewBook" onclick="">
+	<input type="button" name="Add" value="Add new book" id="addNewBook" onclick="">
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="libController.js"></script>
 	<script type="text/javascript" src="libData.js"></script>

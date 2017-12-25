@@ -9,17 +9,22 @@ html, body  {
 	width: 100%;
 	margin: 0 auto;
 	color:white;
-	font-family: 'Source Serif Pro', serif;
+	font-family: 'Lato', sans-serif;
 }
 
 body {
-  line-height: 1.4;
-  background-image: url("images/cov.png");
-  background-size: auto;
+  	line-height: 1.4;
+  	/*background-image: url("images/cov.png");*/
+  	background: linear-gradient(#000000, #434343);
+  	background-size: auto;
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
 }
 h2{
 	text-align: center;
-	margin: 45px 0px;
+	word-spacing: 0.2em;
+	letter-spacing: 0.05em;
+	margin: 35px 0px;
 }
 
 #bookImage{
@@ -39,9 +44,84 @@ h2{
 
 a{
 	color: white;
+	text-decoration: none;
+}
+
+a:hover{
+	color:black;
 }
 
 td{
 	line-height: 3em;
 	font-size: 1.1em;
+	border-bottom: 2px solid white;
+}
+
+#descBlock{
+	width: 60%;
+	margin: 10% 0% 3% 20%;
+	text-align: center;
+	clear: both;
+}
+
+.navli{
+	display: inline-block;
+	margin: 3% 8%;
+	font-size: 1.2em;
+	text-align: justify;
+	border: 2px solid white;
+	padding: 5px;
+	
+}
+
+.navli:hover{
+	background-color: grey;
+	border: 2px solid white;
+}
+
+p{
+	line-height: 1.5em;
+	text-align: justify;
+}
+
+$colorBase1: #f3efe7;
+$colorInputText: #cfcece;
+
+html {
+  
+}
+
+.section-form {
+  width: 37em;
+  margin: 1em auto;
+  background-color: $colorBase1;
+  padding: 2em;
+  
+}
+
+input[type=text],select {
+  height: 40px; 
+}
+
+input[type=text], textarea,select{
+  width: 100%;
+  margin-bottom: 1em;
+  font-size: .9em;
+  color: $colorInputText;
+  font-weight: 300;
+  padding: .5em 1em;
+  border: none;
+  color: #555555;
+  font-weight: 300;
+}
+
+input[type=submit] {
+  cursor: pointer;
+  margin: 0;
+  padding: .5em 2em;
+  background: #636363;
+  border: none;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 400;
 }
