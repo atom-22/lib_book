@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="book">
+<html lang="en" ng-app="book">
 <head>
 	<title>Book</title>
 	<link rel="stylesheet" type="text/css" href="bookstyle.css">
@@ -10,36 +10,35 @@
 	<div>
 		<h2>Learn More About This Book</h2>
 		<div ng-controller="BookController as book">
-			<img ng-src="{{book.bookById.imageSrc}}" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Address_book_icon.svg/2000px-Address_book_icon.svg.png" alt="bookImage" id="bookImage">
+			<img ng-src="{{book.bookById.imageSrc}}" src="images/alt.png" alt="bookImage" id="bookImage">
 			<table>
 				<tr>
 					<td>Name:</td>
-					<td>{{book.bookById.bookName}}</td>
+					<td><input type="text" class="name" name="Book Name" value="{{book.bookById.bookName}}" placeholder="Book Name" readonly/></td>
 				</tr>
 				<tr>
 					<td>Author:</td>
-					<td><a href="" target="_blank">{{book.bookById.author}}</a></td>
+					<td><a href="" target="_blank"><input type="text" class="author" name="Author" value="{{book.bookById.author}}" placeholder="Book Author" readonly/></a></td>
 				</tr>
 				<tr>
 					<td>Publishing year:&nbsp&nbsp</td>
-					<td>{{book.bookById.pubYear}}</td>
-
+					<td><input type="text" class="pubYear" name="Pub Year" value="{{book.bookById.pubYear}}" placeholder="Publishing Year" readonly/></td>
 				</tr>
 				<tr>
 					<td>Country:</td>
-					<td><a href="" target="_blank">{{book.bookById.country}}</a></td>
+					<td><a href="" target="_blank"><input type="text" class="country" name="Country" value="{{book.bookById.country}}" placeholder="Country" readonly/></a></td>
 				</tr>
 				<tr>
 					<td>Pages:</td>
-					<td>{{book.bookById.pages}}</td>
+					<td><input type="text" class="pages" name="Pages" value="{{book.bookById.pages}}" placeholder="Pages" readonly/></td>
 				</tr>
 				<tr>
 					<td>Language:</td>
-					<td>{{book.bookById.language}}</td>
+					<td><input type="text" class="language" name="Language" value="{{book.bookById.language}}" placeholder="Language" readonly/></td>
 				</tr>
 				<tr>
 					<td>Is available:</td>
-					<td>{{book.bookById.isAvailable}}</td>
+					<td><input type="text" class="isAvailable" name="Is Available" value="{{book.bookById.isAvailable}}" placeholder="Is available or not" readonly/></td>
 				</tr>
 			</table>
 		</div>
@@ -91,6 +90,11 @@
 		 		</div>
 		 	</div>
 		</section>
+		<input type="button" name="" value="&#xab; Back" id="backBut">
+		<input type="button" name="" value="Edit" id="editBut">
+		<input type="button" name="" value="Save" id="saveBut">
+		<input type="button" name="" value="Cancel" id="cancelBut">
+		<input type="button" name="" value="Delete" id="deleteBut">
 	</div>
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="bookController.js"></script>

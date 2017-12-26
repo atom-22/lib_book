@@ -7,7 +7,6 @@ function libController(){
 
 	addNewBook.addEventListener("click", addNewBookFunc, false);
 	
-
 	var library = angular.module('library', [ ]);
 
 	library.controller('LibController', function(){

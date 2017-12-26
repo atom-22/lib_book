@@ -18,7 +18,7 @@ function dataController(){
 	
 		var strBooks = getStorage(storageKey);
 		if(strBooks != null){
-			library = JSON.parse(strStudents);
+			library = JSON.parse(strBooks);
 		}
 		else{
 			var book1 = new Book();
@@ -40,7 +40,7 @@ function dataController(){
 			book2.pages = 417;
 			book2.isAvailable = true;
 			book2.country = "Colombia";
-			book2.language = "	Spanish";
+			book2.language = "Spanish";
 			book2.id = 2;
 			book2.imageSrc = "images/2.jpg";
 			library.push(book2);
@@ -93,9 +93,8 @@ function dataController(){
 			book6.imageSrc = "images/6.jpg";
 			library.push(book6);
 			}
-
-		return library;
-		
+			
+		return library;	
 	}
 
 	this.getBooks = function(id){
@@ -109,6 +108,17 @@ function dataController(){
 			}
 		}
 		return null;
+	}
+
+	this.saveBook = function(bk){
+		var std = this.getBooks(bk.id);
+		std = bk;
+		setStorage(storageKey,JSON.stringify(library));
+	}
+
+//private function
+	function setStorage(cname, cvalue) {
+    	window.localStorage.setItem(cname,cvalue);
 	}
 
 	function getStorage(cname) {

@@ -13,13 +13,13 @@
 	  	<div class="equalHMRWrap eqWrap">
 		    <div class="equalHMR eq"  ng-repeat = "bk in library.books">
 		    	<div id="imgContainer">
-		    		<img ng-src="{{bk.imageSrc}}" alt="image">
+		    		<img ng-src="{{bk.imageSrc}}"  src="images/alt.png" alt="image">
 		    	</div>
 		    	<div>
 		    		<p>{{bk.bookName}}</p>
 		    		<p>{{bk.author}}</p>
 		    		<p>{{bk.pubYear}}</p>
-		    		<a href="book.html?id={{bk.id}}" target="_blank">more...</a>
+		    		<a href="book.html?id={{bk.id}}" target="_self">read more...</a>
 		    	</div>
 		    </div>
 	  	</div>

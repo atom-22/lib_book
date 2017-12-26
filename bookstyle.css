@@ -59,7 +59,10 @@ td{
 
 #descBlock{
 	width: 60%;
+	height: 550px;
+	overflow: scroll;
 	margin: 10% 0% 3% 20%;
+	/*border: 1px solid red;*/
 	text-align: center;
 	clear: both;
 }
@@ -111,8 +114,9 @@ input[type=text], textarea,select{
   font-weight: 300;
   padding: .5em 1em;
   border: none;
-  color: #555555;
+  color: white;
   font-weight: 300;
+  background-color: #222222;
 }
 
 input[type=submit] {
@@ -124,4 +128,67 @@ input[type=submit] {
   color: #fff;
   font-size: 1em;
   font-weight: 400;
+}
+#editBut{
+	/*margin-left: 20%;*/
+	position: fixed;
+	right: 5%;
+  	bottom: 0%;
+}
+
+#backBut{
+	position: fixed;
+	left: 5%;
+  	bottom: 0%;
+}
+
+#deleteBut{
+	visibility: hidden;
+	margin-left: 2%;
+}
+
+#saveBut{
+	visibility: hidden;
+	margin:0% 2% 0% 20%;
+}
+
+#cancelBut{
+	visibility: hidden;
+
+}
+
+input[type=button]{
+  background: #119bf7;
+  background-image: -webkit-linear-gradient(top, #119bf7, #175175);
+  background-image: -moz-linear-gradient(top, #119bf7, #175175);
+  background-image: -ms-linear-gradient(top, #119bf7, #175175);
+  background-image: -o-linear-gradient(top, #119bf7, #175175);
+  background-image: linear-gradient(to bottom, #119bf7, #175175);
+  -webkit-border-radius: 21;
+  -moz-border-radius: 21;
+  border-radius: 21px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 10px 20px 10px 20px;
+  border: solid #ffffff 2px;
+  text-decoration: none;
+  margin-bottom: 5%;
+  outline: none;
+  transition: all .3s ease-in-out;
+}
+
+
+input[type=button]:hover {
+  background: #115782;
+  background-image: -webkit-linear-gradient(top, #115782, #0c98f5);
+  background-image: -moz-linear-gradient(top, #115782, #0c98f5);
+  background-image: -ms-linear-gradient(top, #115782, #0c98f5);
+  background-image: -o-linear-gradient(top, #115782, #0c98f5);
+  background-image: linear-gradient(to bottom, #115782, #0c98f5);
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
 }
