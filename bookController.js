@@ -54,7 +54,7 @@ function bookController(){
 		var selector = document.querySelectorAll("input[type='text']");
 		for (var i = 0; i < selector.length;i++) {
 			selector[i].readOnly = isReadOnly;
-			selector[i].style.backgroundColor = "#070707";
+			selector[i].style.backgroundColor = "black";
 		}
 	}
 
