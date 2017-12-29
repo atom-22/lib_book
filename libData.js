@@ -9,6 +9,8 @@ var Book = function(){
 	this.imageSrc = "";
 	this.language = "";
 	this.Reviews = ["FDGD"];
+	this.description = '';
+	this.bookHistory = '';
 }
 
 function dataController(){
@@ -32,7 +34,8 @@ function dataController(){
 			book1.language = "English";
 			book1.id = 1;
 			book1.imageSrc = "images/1.jpg";
-			book1.Reviews = ['honey'];
+			// book1.description = "";
+			// book1.bookHistory = "";
 			library.push(book1);
 
 			var book2 = new Book();

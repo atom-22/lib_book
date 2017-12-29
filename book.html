@@ -46,10 +46,10 @@
 			<div>
 				<ul>
 			 		<li ng-class="{active:panel.isSelected(1)}" class="navli">
-			 			<a href ng-click="panel.selectTab(1)"><button>&nbspBook history&nbsp</button></a>
+			 			<a href ng-click="panel.selectTab(1)"><button>&nbspDescription&nbsp</button></a>
 			 		</li>
 			 		<li ng-class="{active:panel.isSelected(2)}" class="navli">
-			 			<a href ng-click="panel.selectTab(2)"><button>&nbspDescription&nbsp</button></a>
+			 			<a href ng-click="panel.selectTab(2)"><button>&nbspBook history&nbsp</button></a>
 			 		</li>
 			 		<li ng-class="{active:panel.isSelected(3)}" class="navli">
 			 			<a href ng-click="panel.selectTab(3)"><button>&nbspReview&nbsp</button></a>
@@ -59,20 +59,26 @@
 
 		 	<div> 
 		 		<div class="panel" ng-show="panel.isSelected(1)">
-			 		<p>Based on the life of Paul Gauguin, The Moon and Sixpence is W. Somerset Maugham's ode to the powerful forces behind creative genius.
-					Charles Strickland is a staid banker, a man of wealth and privilege. He is also a man possessed of an unquenchable desire to create art. As Strickland pursues his artistic vision, he leaves London for Paris and Tahiti, and in his quest makes sacrifices that leaves the lives of those closest to him in tatters. Through Maugham's sympathetic eye Strickland's tortured and cruel soul becomes a symbol of the blessing and the curse of transcendent artistic genius, and the cost in humans lives it sometimes demands.</p>
+			 		<p>
+			 			<!-- Based on the life of Paul Gauguin, The Moon and Sixpence is W. Somerset Maugham's ode to the powerful forces behind creative genius.
+						Charles Strickland is a staid banker, a man of wealth and privilege. He is also a man possessed of an unquenchable desire to create art. As Strickland pursues his artistic vision, he leaves London for Paris and Tahiti, and in his quest makes sacrifices that leaves the lives of those closest to him in tatters. Through Maugham's sympathetic eye Strickland's tortured and cruel soul becomes a symbol of the blessing and the curse of transcendent artistic genius, and the cost in humans lives it sometimes demands. -->
+						<input type="text" class="description" name="Description" value="{{book.bookById.description}}" maxlength="24" placeholder="Description" readonly/>
+					</p>
 		 		</div>
 		 		<div class="panel" ng-show="panel.isSelected(2)">
-		 			<p>Charles Strickland, a dull stockbroker, lives in England with his wife and two children. Mrs. Strickland is a model mother, but her husband seems bored with her and with his children. To everyone else, it is Strickland who seems commonplace. The family spends the summer at the seashore, and Strickland returns ahead of his wife. When she writes him that she is coming home, he answers from Paris, simply stating that he is not going to live with her anymore. With singleness of intention, Mrs. Strickland dispatches a friend to Paris to bring back her husband.
+		 			<p>
+		 				<!-- Charles Strickland, a dull stockbroker, lives in England with his wife and two children. Mrs. Strickland is a model mother, but her husband seems bored with her and with his children. To everyone else, it is Strickland who seems commonplace. The family spends the summer at the seashore, and Strickland returns ahead of his wife. When she writes him that she is coming home, he answers from Paris, simply stating that he is not going to live with her anymore. With singleness of intention, Mrs. Strickland dispatches a friend to Paris to bring back her husband.
 
-					Strickland is living in a shabby hotel; his room is filthy, but he appears to be living alone. Much to the discomfort of the friend, he candidly admits his beastly treatment of his wife, but there is no emotion in his statements concerning her and her future welfare. When asked about the woman with whom he had allegedly run away, he laughs, explaining to Mrs. Strickland’s emissary that he had really run off to paint. He knows he can paint if he seriously tries. The situation is incredible to Mrs. Strickland’s friend. Strickland says he does not care what people think of him.
+						Strickland is living in a shabby hotel; his room is filthy, but he appears to be living alone. Much to the discomfort of the friend, he candidly admits his beastly treatment of his wife, but there is no emotion in his statements concerning her and her future welfare. When asked about the woman with whom he had allegedly run away, he laughs, explaining to Mrs. Strickland’s emissary that he had really run off to paint. He knows he can paint if he seriously tries. The situation is incredible to Mrs. Strickland’s friend. Strickland says he does not care what people think of him.
 
-					Stubbornly, Strickland begins to take art lessons. Although his teacher laughs at his work, he merely shrugs his shoulders and continues to paint in his own way. Back in England, the friend tries to explain to Mrs. Strickland the utter hopelessness of trying to reconcile her husband. She cannot realize her defeat at first. If Strickland had gone off with a woman, she could have understood him. Mrs. Strickland, however, is not able to cope with his having left her for an idea.{{department}}</p>
+						Stubbornly, Strickland begins to take art lessons. Although his teacher laughs at his work, he merely shrugs his shoulders and continues to paint in his own way. Back in England, the friend tries to explain to Mrs. Strickland the utter hopelessness of trying to reconcile her husband. She cannot realize her defeat at first. If Strickland had gone off with a woman, she could have understood him. Mrs. Strickland, however, is not able to cope with his having left her for an idea. -->
+						<input type="text" class="bookHistory" name="Book History" value="{{book.bookById.bookHistory}}" maxlength="24" placeholder="Book History" height="100" readonly/>
+					</p>
 		 		</div>
 		 		<div class="panel" ng-show="panel.isSelected(3)">
 		 			<div class="section-form">
-						<form method="get" action="" name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview()" novalidate>                      <!-- reviewForm.$valid && reviewCtrl.addReview()      -->  
-							<blockquote> 
+						<!-- <form method="get" action="" name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview()" novalidate>  -->                     <!-- reviewForm.$valid && reviewCtrl.addReview()      -->  
+						<!-- 	<blockquote> 
 								<p>Name: {{reviewCtrl.review.author}}</p>
 								<p>Email: {{reviewCtrl.review.email}}</p>       
 								<p>Rate: {{reviewCtrl.review.stars}}</p>
@@ -92,7 +98,51 @@
 						    <input type="submit" value="Add Message"/>
 						    <button class="" type="reset" ng-click="reset()">Clear</button>
 						    <pre>{{reviewCtrl.review}}</pre>
-						</form>
+						</form> -->
+
+
+						<div class="container" data-ng-controller="ReviewController">
+							<section class="app-body">
+								<form data-ng-submit="addReview()" class="rev-form" novalidate="">
+									<blockquote> 
+										<p>Name: {{name}}</p>
+										<p>Email: {{email}}</p>       
+										<p>Rate: {{rate}}</p>
+										<p>Message: {{Text}}</p>
+									</blockquote>
+									<input type="text" class="reviewInput" data-ng-model="name" placeholder="Enter name" required/>
+									<input type="text" class="reviewInput" data-ng-model="email" placeholder="Enter email" required/>
+									 <select name="rate" ng-model="rate" required>
+								    	<option value="" selected >Rate</option>
+								    	<option value="Worst">Worst</option>
+								    	<option value="Bad">Bad</option>
+								    	<option value="Normal">Normal</option>
+								    	<option value="Good">Good</option>
+								    	<option value="The Best">The Best</option>
+								    </select>
+									<input type="text" class="reviewInput" data-ng-model="Text" placeholder="Enter Message" required/>
+									<br/>
+									<input type="submit" value="Add Message" />
+									<button class="" type="reset" ng-click="reset()">Clear</button>
+								</form>
+
+								<ul class="unstyled">
+									<li data-ng-repeat="rev in review track by $index">
+										<label>Check this review:<input type="checkbox" data-ng-model="rev.done"></label>
+										<span>Name: {{rev.name}}</span>
+										<span>Email: {{rev.email}}</span>
+										<span>Rate: {{rev.rate}}</span>
+										<span class="done-{{rev.done }}">Message:{{rev.text}} </span>
+										<br>
+									</li>
+								</ul>
+								<section class="archive-control">
+									<p id="remaining">{{ remaining() }} of {{review.length }} remaining</p>
+									<p><a href="" data-ng-click="archive()" id="reviewDelete">Remove Items</a></p>
+								</section>
+							</section>
+						</div>
+
 					</div>
 		 		</div>
 		 	</div>

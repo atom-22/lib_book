@@ -41,19 +41,17 @@ function bookController(){
 
 
 
-	book.controller("ReviewController",function($scope){
+	//book.controller("ReviewController",function($scope){
 		// var bookDataCont = new dataController();
 		// $scope.x = bookDataCont.Reviews;
 
-		$scope.review = {};
-		$scope.addReview = function(product) {
-			alert($scope.author);
-			product.reviews.push(this.review);
-			this.review = {};
+		// $scope.review = {};
+		// $scope.addReview = function(product) {
+		// 	alert($scope.author);
+		// 	product.reviews.push(this.review);
+		// 	this.review = {};
 			
-		};
-
-
+		// };
 
 
 		// var bk = new Book;
@@ -73,13 +71,57 @@ function bookController(){
 		// 	localSet();
 		// };
 
+		// $scope.reset = function() {
+		// 	$scope.list = {};
+		// 	};
+		// })
+
+
+	book.controller("ReviewController",function($scope){
+		$scope.saved = localStorage.getItem('review');
+		$scope.review = (localStorage.getItem('review')!==null) ? JSON.parse($scope.saved) : [];
+		localStorage.setItem('review', JSON.stringify($scope.review));
+
+		$scope.addReview = function() {
+			$scope.review.push({
+				text: $scope.Text,
+				name: $scope.name,
+				email:$scope.email,
+				rate: $scope.rate,
+				done: false
+			});
+			$scope.Text = '';
+			$scope.name = '';
+			$scope.email = '';
+			$scope.rate = '';
+			localStorage.setItem('review', JSON.stringify($scope.review));
+		};
+
+		$scope.archive = function() {
+			var oldReview = $scope.review;
+			$scope.review = [];
+			angular.forEach(oldReview, function(rev){
+				if (!rev.done)
+					$scope.review.push(rev);
+			});
+			localStorage.setItem('review', JSON.stringify($scope.review));
+		};
+
 		$scope.reset = function() {
-			$scope.list = {};
+			$scope.Text = ''; 
+			$scope.name = '';
+			$scope.email = '';
+			$scope.rate = '';
 			};
-		})
 
-
-		
+		$scope.remaining = function() {
+			var count = 0;
+			angular.forEach($scope.review, function(revi){
+			count+= revi.done ? 0 : 1;
+		});
+		return count;
+	};
+})
 
 
 //private function
@@ -147,6 +189,8 @@ function bookController(){
 		bookById.country = document.querySelector("input[name='Country']").value;
 		bookById.isAvailable = document.querySelector("input[name='Is Available']").value;
 		bookById.language = document.querySelector("input[name='Language']").value;
+		bookById.description = document.querySelector("input[name='Description']").value;
+		bookById.bookHistory = document.querySelector("input[name='Book History']").value;
 		
 		bookDataCont.saveBook(bookById);
 		window.location = window.location + queryString; 		

@@ -109,6 +109,10 @@ button:hover{
 	cursor: pointer;
 }
 
+/*.reviewInput{
+	border: white !important;
+}*/
+
 p{
 	line-height: 1.5em;
 	text-align: justify;
@@ -136,7 +140,8 @@ input[type=text],input[type=email],textarea,select{
 	font-size: .9em;
 	font-weight: 300;
 	padding: .5em 1em;
-	border: none;
+	/*border:none;*/
+	outline: none;
 	color: white;
 	font-weight: bold;
 	background: rgba(255,255,255,0.01);
@@ -256,4 +261,48 @@ input[type=button]:hover {
 
 pre{
 	color:white;
+}
+
+#reviewDelete{
+	color:white;
+	border: 2px solid white;
+	padding: 10px;
+}
+
+#reviewDelete:hover{
+	background-image: linear-gradient(to bottom, #115782, #0c98f5);
+}
+
+span{
+  color:white;
+  font-weight: 600;
+  display: block;
+  line-height: 1.7em;
+}
+
+.unstyled{
+	text-align: left;
+	margin-top:5%;
+	padding: 2% 1%;
+	list-style-type: none;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+label{
+	color: white;
+	font-weight: 600;
+}
+
+.archive-control{
+	margin: 15% 0;
+}
+
+#remaining{
+	color: white;
+}
+
+.description,
+.bookHistory{
+	height: 27em !important;
+	padding-bottom: 25em !important;
 }
