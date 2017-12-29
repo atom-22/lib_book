@@ -8,6 +8,7 @@ var Book = function(){
 	this.isAvailable = "";
 	this.imageSrc = "";
 	this.language = "";
+	this.Reviews = ["FDGD"];
 }
 
 function dataController(){
@@ -31,6 +32,7 @@ function dataController(){
 			book1.language = "English";
 			book1.id = 1;
 			book1.imageSrc = "images/1.jpg";
+			book1.Reviews = ['honey'];
 			library.push(book1);
 
 			var book2 = new Book();
@@ -92,6 +94,8 @@ function dataController(){
 			book6.id =6;
 			book6.imageSrc = "images/6.jpg";
 			library.push(book6);
+
+			this.setStorage(storageKey,JSON.stringify(library));
 			}
 			
 		return library;	
@@ -113,13 +117,14 @@ function dataController(){
 	this.saveBook = function(bk){
 		var std = this.getBooks(bk.id);
 		std = bk;
-		setStorage(storageKey,JSON.stringify(library));
+		this.setStorage(storageKey,JSON.stringify(library));
+	}
+	
+	this.setStorage = function(cname, cvalue) {
+    	window.localStorage.setItem(cname,cvalue);
 	}
 
 //private function
-	function setStorage(cname, cvalue) {
-    	window.localStorage.setItem(cname,cvalue);
-	}
 
 	function getStorage(cname) {
 		return	window.localStorage.getItem(cname);

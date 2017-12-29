@@ -14,46 +14,45 @@
 			<table>
 				<tr>
 					<td>Name:</td>
-					<td><input type="text" class="name" name="Book Name" value="{{book.bookById.bookName}}" placeholder="Book Name" readonly/></td>
+					<td><input type="text" class="name" name="Book Name" value="{{book.bookById.bookName}}" maxlength="24" placeholder="Book Name" readonly/></td>
 				</tr>
 				<tr>
 					<td>Author:</td>
-					<td><a href="" target="_blank"><input type="text" class="author" name="Author" value="{{book.bookById.author}}" placeholder="Book Author" readonly/></a></td>
+					<td><a href="" target="_blank"><input type="text" class="author" name="Author" value="{{book.bookById.author}}" maxlength="24" placeholder="Book Author" readonly/></a></td>
 				</tr>
 				<tr>
 					<td>Publishing year:&nbsp&nbsp</td>
-					<td><input type="text" class="pubYear" name="Pub Year" value="{{book.bookById.pubYear}}" placeholder="Publishing Year" readonly/></td>
+					<td><input type="text" class="pubYear" name="Pub Year" value="{{book.bookById.pubYear}}" maxlength="24" placeholder="Publishing Year" readonly/></td>
 				</tr>
 				<tr>
 					<td>Country:</td>
-					<td><a href="" target="_blank"><input type="text" class="country" name="Country" value="{{book.bookById.country}}" placeholder="Country" readonly/></a></td>
+					<td><a href="" target="_blank"><input type="text" class="country" name="Country" maxlength="24" value="{{book.bookById.country}}" placeholder="Country" readonly/></a></td>
 				</tr>
 				<tr>
 					<td>Pages:</td>
-					<td><input type="text" class="pages" name="Pages" value="{{book.bookById.pages}}" placeholder="Pages" readonly/></td>
+					<td><input type="text" class="pages" name="Pages" value="{{book.bookById.pages}}" maxlength="24" placeholder="Pages" readonly/></td>
 				</tr>
 				<tr>
 					<td>Language:</td>
-					<td><input type="text" class="language" name="Language" value="{{book.bookById.language}}" placeholder="Language" readonly/></td>
+					<td><input type="text" class="language" name="Language" value="{{book.bookById.language}}" maxlength="24" placeholder="Language" readonly/></td>
 				</tr>
 				<tr>
 					<td>Is available:</td>
-					<td><input type="text" class="isAvailable" name="Is Available" value="{{book.bookById.isAvailable}}" placeholder="Is available or not" readonly/></td>
+					<td><input type="text" class="isAvailable" name="Is Available" value="{{book.bookById.isAvailable}}" maxlength="24" placeholder="Is available or not" readonly/></td>
 				</tr>
 			</table>
-		</div>
-
+		
 		<section ng-controller="PanelController as panel" id="descBlock">
 			<div>
-				<ul class="nav nav-pills">
+				<ul>
 			 		<li ng-class="{active:panel.isSelected(1)}" class="navli">
-			 			<a href ng-click="panel.selectTab(1)">&nbspBook history&nbsp</a>
+			 			<a href ng-click="panel.selectTab(1)"><button>&nbspBook history&nbsp</button></a>
 			 		</li>
 			 		<li ng-class="{active:panel.isSelected(2)}" class="navli">
-			 			<a href ng-click="panel.selectTab(2)">&nbspDescription&nbsp</a>
+			 			<a href ng-click="panel.selectTab(2)"><button>&nbspDescription&nbsp</button></a>
 			 		</li>
 			 		<li ng-class="{active:panel.isSelected(3)}" class="navli">
-			 			<a href ng-click="panel.selectTab(3)">&nbspReview&nbsp</a>
+			 			<a href ng-click="panel.selectTab(3)"><button>&nbspReview&nbsp</button></a>
 			 		</li>
 		 		</ul>
 			</div>
@@ -61,7 +60,7 @@
 		 	<div> 
 		 		<div class="panel" ng-show="panel.isSelected(1)">
 			 		<p>Based on the life of Paul Gauguin, The Moon and Sixpence is W. Somerset Maugham's ode to the powerful forces behind creative genius.
-					Charles Strickland is a staid banker, a man of wealth and privilege. He is also a man possessed of an unquenchable desire to create art. As Strickland pursues his artistic vision, he leaves London for Paris and Tahiti, and in his quest makes sacrifices that leaves the lives of those closest to him in tatters. Through Maugham's sympathetic eye Strickland's tortured and cruel soul becomes a symbol of the blessing and the curse of transcendent artistic genius, and the cost in humans lives it sometimes demands.{{email}}</p>
+					Charles Strickland is a staid banker, a man of wealth and privilege. He is also a man possessed of an unquenchable desire to create art. As Strickland pursues his artistic vision, he leaves London for Paris and Tahiti, and in his quest makes sacrifices that leaves the lives of those closest to him in tatters. Through Maugham's sympathetic eye Strickland's tortured and cruel soul becomes a symbol of the blessing and the curse of transcendent artistic genius, and the cost in humans lives it sometimes demands.</p>
 		 		</div>
 		 		<div class="panel" ng-show="panel.isSelected(2)">
 		 			<p>Charles Strickland, a dull stockbroker, lives in England with his wife and two children. Mrs. Strickland is a model mother, but her husband seems bored with her and with his children. To everyone else, it is Strickland who seems commonplace. The family spends the summer at the seashore, and Strickland returns ahead of his wife. When she writes him that she is coming home, he answers from Paris, simply stating that he is not going to live with her anymore. With singleness of intention, Mrs. Strickland dispatches a friend to Paris to bring back her husband.
@@ -72,19 +71,27 @@
 		 		</div>
 		 		<div class="panel" ng-show="panel.isSelected(3)">
 		 			<div class="section-form">
-						<form method="" action="">
-						    <input type="text" value="" placeholder="Name" name="name" tabindex="1"/>
-						    <input type="text" value="" placeholder="E-mail" name="email" tabindex="2"/>
-						    <select name="rate">
-						    	<option value="" selected disabled="">Rate</option>
-						    	<option value="">Worst</option>
-						    	<option value="">Bad</option>
-						    	<option value="" >Normal</option>
-						    	<option value="">Good</option>
-						    	<option value="">The Best</option>
+						<form method="get" action="" name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview()" novalidate>                      <!-- reviewForm.$valid && reviewCtrl.addReview()      -->  
+							<blockquote> 
+								<p>Name: {{reviewCtrl.review.author}}</p>
+								<p>Email: {{reviewCtrl.review.email}}</p>       
+								<p>Rate: {{reviewCtrl.review.stars}}</p>
+								<p>Message: {{reviewCtrl.review.body}}</p>
+							</blockquote>
+						    <input type="text" value="" placeholder="Name" name="name" tabindex="1" ng-model="reviewCtrl.review.author" required/>
+						    <input type="email" value="" placeholder="E-mail" name="email" tabindex="2" ng-model="reviewCtrl.review.email"/>
+						    <select name="rate" ng-model="reviewCtrl.review.stars" required>
+						    	<option value="" selected >Rate</option>
+						    	<option value="Worst">Worst</option>
+						    	<option value="Bad">Bad</option>
+						    	<option value="Normal">Normal</option>
+						    	<option value="Good">Good</option>
+						    	<option value="The Best">The Best</option>
 						    </select>
-						    <textarea placeholder="Message" name="Message" tabindex="3" rows="10" maxlength="350"></textarea>
-						    <input type="submit" value="Add Message" tabindex="4"/>
+						    <textarea placeholder="Message" name="Message" tabindex="3" rows="10" maxlength="60" ng-model="reviewCtrl.review.body" required></textarea>
+						    <input type="submit" value="Add Message"/>
+						    <button class="" type="reset" ng-click="reset()">Clear</button>
+						    <pre>{{reviewCtrl.review}}</pre>
 						</form>
 					</div>
 		 		</div>
@@ -96,6 +103,8 @@
 		<input type="button" name="" value="Cancel" id="cancelBut">
 		<input type="button" name="" value="Delete" id="deleteBut">
 	</div>
+	</div>
+
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="bookController.js"></script>
 	<script type="text/javascript" src="libData.js"></script>

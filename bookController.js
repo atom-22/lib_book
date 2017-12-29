@@ -22,7 +22,7 @@ function bookController(){
 
 //Angular
 
-	var book = angular.module('book', [ ]);
+	var book = angular.module('book', []);
 
 	book.controller('BookController', function(){
 		this.bookById = bookById;
@@ -38,6 +38,49 @@ function bookController(){
 			return this.tab === checkTab;
 		};
 	});
+
+
+
+	book.controller("ReviewController",function($scope){
+		// var bookDataCont = new dataController();
+		// $scope.x = bookDataCont.Reviews;
+
+		$scope.review = {};
+		$scope.addReview = function(product) {
+			alert($scope.author);
+			product.reviews.push(this.review);
+			this.review = {};
+			
+		};
+
+
+
+
+		// var bk = new Book;
+		// $scope.Reviews = bk.Reviews;
+		// $scope.x="hi";
+		// $scope.saved = localStorage.getItem('Reviews');
+		// $scope.Reviews = ($scope.saved !== null) ? JSON.parse($scope.saved) : [];
+		// 	var localSet = function() {
+		// localStorage.setItem('Reviews', JSON.stringify($scope.Reviews));
+		// };
+		// localSet();
+		// $scope.addTodo = function() {
+		// $scope.Reviews.push({
+		// name: $scope.x,
+		// });
+		// 	$scope.review = ''; 
+		// 	localSet();
+		// };
+
+		$scope.reset = function() {
+			$scope.list = {};
+			};
+		})
+
+
+		
+
 
 //private function
 	function getIdFromQuerySring(){
@@ -73,10 +116,12 @@ function bookController(){
 	function deleteButFunc(){
 		var answer = confirm("Are you sure?");
 		if(answer) {
-			var id = getIdFromQuerySring();
-			console.log(id);
-			window.localStorage.clear();
-			window.location = window.location;
+			var allBooks = bookDataCont.getAllBooks();
+			var elementPos = allBooks.map(function(x){return x.id;});
+			var remObjIndex = elementPos.indexOf(Number(id));
+			var obj = allBooks.splice(remObjIndex,1);
+			bookDataCont.setStorage("Library",JSON.stringify(allBooks));
+			window.location = "library.html";
 		}
 		else{
  			return;
@@ -92,7 +137,7 @@ function bookController(){
 			var bookList = bookDataCont.getAllBooks();
 			bookById.id = bookList.length + 1;
 			bookList.push(bookById);
-			queryString = "?id=" + bookById.id;
+			queryString = "id=" + bookById.id;
 		}
 
 		bookById.bookName = document.querySelector("input[name='Book Name']").value;
