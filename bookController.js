@@ -124,7 +124,7 @@ function bookController(){
 			var remObjIndex = elementPos.indexOf(Number(id));
 			var obj = allBooks.splice(remObjIndex,1);
 			bookDataCont.setStorage("Library",JSON.stringify(allBooks));
-			window.location = "library.html";
+			window.location.href = "https://atom-22.github.io/lib_book/";
 		}
 		else{
  			return;
