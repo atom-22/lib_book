@@ -1,10 +1,8 @@
-
 function libController(){
 	var dataCont = new dataController();
 	var books = dataCont.getAllBooks();
-
 	var addNewBook = document.getElementById('addNewBook');
-
+	
 	addNewBook.addEventListener("click", addNewBookFunc, false);
 	
 	var library = angular.module('library', [ ]);

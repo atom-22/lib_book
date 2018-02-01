@@ -39,44 +39,6 @@ function bookController(){
 		};
 	});
 
-
-
-	//book.controller("ReviewController",function($scope){
-		// var bookDataCont = new dataController();
-		// $scope.x = bookDataCont.Reviews;
-
-		// $scope.review = {};
-		// $scope.addReview = function(product) {
-		// 	alert($scope.author);
-		// 	product.reviews.push(this.review);
-		// 	this.review = {};
-			
-		// };
-
-
-		// var bk = new Book;
-		// $scope.Reviews = bk.Reviews;
-		// $scope.x="hi";
-		// $scope.saved = localStorage.getItem('Reviews');
-		// $scope.Reviews = ($scope.saved !== null) ? JSON.parse($scope.saved) : [];
-		// 	var localSet = function() {
-		// localStorage.setItem('Reviews', JSON.stringify($scope.Reviews));
-		// };
-		// localSet();
-		// $scope.addTodo = function() {
-		// $scope.Reviews.push({
-		// name: $scope.x,
-		// });
-		// 	$scope.review = ''; 
-		// 	localSet();
-		// };
-
-		// $scope.reset = function() {
-		// 	$scope.list = {};
-		// 	};
-		// })
-
-
 	book.controller("ReviewController",function($scope){
 		$scope.saved = localStorage.getItem('review');
 		$scope.review = (localStorage.getItem('review')!==null) ? JSON.parse($scope.saved) : [];
@@ -122,7 +84,6 @@ function bookController(){
 		return count;
 	};
 })
-
 
 //private function
 	function getIdFromQuerySring(){
