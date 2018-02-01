@@ -105,7 +105,7 @@ function bookController(){
 	}
 
 	function backButFunc(){
-		window.location = "library.html";
+		window.location = "https://atom-22.github.io/lib_book/";
 	}
 
 	function editButFunc() {															//edit book's information
