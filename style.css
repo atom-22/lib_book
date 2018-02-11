@@ -60,7 +60,7 @@ img{
 }
 
 img:hover{	
-	cursor: zoom-in;
+	cursor: pointer;
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
