@@ -147,6 +147,18 @@ input[type=text],input[type=email],textarea,select{
 	background: rgba(255,255,255,0.01);
 }
 
+.name,
+.author,
+.pubYear,
+.country,
+.pages,
+.language,
+.isAvailable,
+.description,
+.bookHistory{
+	border:none;
+}
+
 input[type=submit],button[type=reset] {
 	border:2px solid white;
 	cursor: pointer;
